@@ -1,5 +1,6 @@
-RUN apk add --no-cache maven
+FROM openjdk:8-alpine
 ENV MAVEN_OPTS="-Xmx256m"
+RUN apk add --no-cache maven
 COPY . /app
 WORKDIR /app
 RUN mvn clean package -Dmaven.test.skip=true
